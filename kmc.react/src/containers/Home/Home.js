@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { PageHeader, ListGroup, ListGroupItem } from "react-bootstrap";
 import { API } from "aws-amplify";
 import { LinkContainer } from "react-router-bootstrap";
+import { Link } from "react-router-dom";
 
 import { useAppContext } from "../../libs/contextLib";
 import { onError } from "../../libs/errorLib";
@@ -61,8 +62,8 @@ export default function Home() {
     function renderLander() {
         return (
             <div className="lander">
-                <h1>KMC</h1>
-                <p>Kim Minh Chau</p>
+                <h1>Kim Minh Chau</h1>
+                <p>Admin site quản lý</p>
                 <div>
                     <Link to="/login" className="btn btn-info btn-lg">
                         Login
