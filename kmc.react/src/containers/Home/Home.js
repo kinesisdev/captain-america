@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { PageHeader, ListGroup, ListGroupItem } from "react-bootstrap";
 import { API } from "aws-amplify";
 import { LinkContainer } from "react-router-bootstrap";
+import { Link } from "react-router-dom";
 
 import { useAppContext } from "../../libs/contextLib";
 import { onError } from "../../libs/errorLib";
@@ -37,24 +38,6 @@ export default function Home() {
     }
 
     function renderProductsList(products) {
-        // return [{}].concat(products).map((product, i) =>
-        //     i !== 0 ? (
-        //         <LinkContainer key={product.productId} to={`/products/${product.productId}`}>
-        //             <ListGroupItem header={product.type.trim().split("\n")[0]}>
-        //                 {"Created: " + new Date(product.createdAt).toLocaleString()}
-        //             </ListGroupItem>
-        //         </LinkContainer>
-        //     ) : (
-        //         <LinkContainer key="new" to="/products/new">
-        //             <ListGroupItem>
-        //                 <h4>
-        //                     <b>{"\uFF0B"}</b> Add new product
-        //                 </h4>
-        //             </ListGroupItem>
-        //         </LinkContainer>
-        //     )
-        // );
-
         return (
             <div>
                 <LinkContainer key="new" to="/products/new">
@@ -74,17 +57,18 @@ export default function Home() {
                 <EditableProductTable products={products} />
             </div>
         )
-
-        // return (
-        //
-        // );
     }
 
     function renderLander() {
         return (
             <div className="lander">
-                <h1>KMC</h1>
-                <p>Kim Minh Chau</p>
+                <h1>Kim Minh Chau</h1>
+                <p>Admin site quản lý</p>
+                <div>
+                    <Link to="/login" className="btn btn-info btn-lg">
+                        Login
+                    </Link>
+                </div>
             </div>
         );
     }
