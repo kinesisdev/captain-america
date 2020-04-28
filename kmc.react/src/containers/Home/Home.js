@@ -37,24 +37,6 @@ export default function Home() {
     }
 
     function renderProductsList(products) {
-        // return [{}].concat(products).map((product, i) =>
-        //     i !== 0 ? (
-        //         <LinkContainer key={product.productId} to={`/products/${product.productId}`}>
-        //             <ListGroupItem header={product.type.trim().split("\n")[0]}>
-        //                 {"Created: " + new Date(product.createdAt).toLocaleString()}
-        //             </ListGroupItem>
-        //         </LinkContainer>
-        //     ) : (
-        //         <LinkContainer key="new" to="/products/new">
-        //             <ListGroupItem>
-        //                 <h4>
-        //                     <b>{"\uFF0B"}</b> Add new product
-        //                 </h4>
-        //             </ListGroupItem>
-        //         </LinkContainer>
-        //     )
-        // );
-
         return (
             <div>
                 <LinkContainer key="new" to="/products/new">
@@ -74,10 +56,6 @@ export default function Home() {
                 <EditableProductTable products={products} />
             </div>
         )
-
-        // return (
-        //
-        // );
     }
 
     function renderLander() {
@@ -85,6 +63,11 @@ export default function Home() {
             <div className="lander">
                 <h1>KMC</h1>
                 <p>Kim Minh Chau</p>
+                <div>
+                    <Link to="/login" className="btn btn-info btn-lg">
+                        Login
+                    </Link>
+                </div>
             </div>
         );
     }
