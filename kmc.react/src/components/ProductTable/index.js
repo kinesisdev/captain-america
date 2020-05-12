@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import {BootstrapTable, TableHeaderColumn} from "react-bootstrap-table";
 import '../../libs/css/react-bootstrap-table-all.min.css'
 
@@ -26,15 +27,25 @@ export default function ProductTable({
         lastPage: '>>',
         paginationPosition: 'bottom',
         defaultSortName: 'productId',
-        defaultSortOrder: 'asc'
+        defaultSortOrder: 'asc',
+        expandRowBgColor: 'rgc(242, 255, 163)'
     };
 
     function formatFloat(cell, row) {
         return parseFloat(cell) || 0;
     }
 
+    function onEditClick() {
+
+    }
+
     return (
-        <BootstrapTable data={ products } pagination={ true } options={ options }>
+        <BootstrapTable
+            data={ products }
+            pagination={ true }
+            options={ options }
+            expandableRow = {onEditClick}
+        >
             <TableHeaderColumn
                 dataField='productId'
                 isKey

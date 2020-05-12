@@ -5,6 +5,10 @@ import Home from "./containers/Home/Home";
 import Login from "./containers/Login/Login";
 import Signup from "./containers/Signup/Signup";
 import NewProduct from "./containers/NewProduct/NewProduct";
+import EditProduct from "./containers/EditProduct";
+import SellProduct from "./containers/SellProduct";
+import Checkout from "./containers/Checkout";
+import Receipt from "./containers/Receipt";
 import NotFound from "./containers/NotFound/NotFound";
 
 import UnauthenticatedRoute from "./components/UnauthenticatedRoute";
@@ -22,6 +26,18 @@ export default function Routes() {
             </UnauthenticatedRoute>
             <AuthenticatedRoute exact path="/products/new">
                 <NewProduct />
+            </AuthenticatedRoute>
+            <AuthenticatedRoute exact path="/products/:productId">
+                <EditProduct />
+            </AuthenticatedRoute>
+            <AuthenticatedRoute exact path="/sell">
+                <SellProduct />
+            </AuthenticatedRoute>
+            <AuthenticatedRoute exact path="/checkout/:historyId">
+                <Checkout />
+            </AuthenticatedRoute>
+            <AuthenticatedRoute exact path="/receipt/:historyId">
+                <Receipt />
             </AuthenticatedRoute>
             { /* Finally, catch all unmatched routes */ }
             <Route component={NotFound} />
