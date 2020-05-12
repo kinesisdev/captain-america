@@ -10,8 +10,7 @@ function onBeforeSaveCell(row, cellName, cellValue) {
     return true;
 }
 
-async function onAfterSaveCell(row, cellName, cellValue) {
-
+function onAfterSaveCell(row, cellName, cellValue) {
 }
 
 export default function EditableProductTable({
@@ -117,6 +116,12 @@ export default function EditableProductTable({
                 }}
             >
                 Tiền công
+            </TableHeaderColumn>
+            <TableHeaderColumn
+                width='5%'
+                dataSort
+            >
+                Edit
             </TableHeaderColumn>
         </BootstrapTable>
     )

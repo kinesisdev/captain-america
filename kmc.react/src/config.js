@@ -5,7 +5,7 @@ const dev = {
     },
     apiGateway: {
         REGION: "ap-southeast-1",
-        URL: "api.kimminhchau.org/dev"
+        URL: "https://api.kimminhchau.org/dev"
     },
     cognito: {
         REGION: "ap-southeast-1",
@@ -22,7 +22,7 @@ const prod = {
     },
     apiGateway: {
         REGION: "ap-southeast-1",
-        URL: "api.kimminhchau.org/prod"
+        URL: "https://api.kimminhchau.org/prod"
     },
     cognito: {
         REGION: "ap-southeast-1",

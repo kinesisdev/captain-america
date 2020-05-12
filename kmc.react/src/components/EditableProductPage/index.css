@@ -1,8 +1,8 @@
-.NewProduct form {
+.EditableProductPage form {
     padding-bottom: 15px;
 }
 
-.NewProduct form textarea {
+.EditableProductPage form textarea {
     height: 20px;
     font-size: 24px;
 }

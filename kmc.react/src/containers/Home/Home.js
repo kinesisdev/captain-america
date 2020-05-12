@@ -21,8 +21,14 @@ export default function Home() {
             }
 
             try {
-                const products = await loadProducts();
-                setProducts(products);
+                const response = await loadProducts();
+                console.log(response);
+                if (response.code == '200') {
+                    const products = response.products;
+                    setProducts(products);
+                } else {
+                    onError(response.message);
+                }
             } catch (e) {
                 onError(e);
             }
@@ -47,7 +53,7 @@ export default function Home() {
                         </h4>
                     </ListGroupItem>
                 </LinkContainer>
-                <LinkContainer key="new" to="/products/new">
+                <LinkContainer key="sell" to="/sell">
                     <ListGroupItem>
                         <h4>
                             <b></b> Bán hàng
