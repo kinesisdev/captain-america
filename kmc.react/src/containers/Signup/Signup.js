@@ -16,7 +16,7 @@ import "./Signup.css";
 
 export default function Signup() {
     const [fields, handleFieldChange] = useFormFields({
-        email: "",
+        username : "",
         password: "",
         confirmPassword: "",
         confirmationCode: "",
@@ -28,7 +28,7 @@ export default function Signup() {
 
     function validateForm() {
         return (
-            fields.email.length > 0 &&
+            fields.username.length > 0 &&
             fields.password.length > 0 &&
             fields.password === fields.confirmPassword
         );
@@ -45,7 +45,7 @@ export default function Signup() {
 
         try {
             const newUser = await Auth.signUp({
-                username: fields.email,
+                username: fields.username,
                 password: fields.password,
             });
             setIsLoading(false);
@@ -72,33 +72,7 @@ export default function Signup() {
             setIsLoading(false);
         }
     }
-
-    function renderConfirmationForm() {
-        return (
-            <form onSubmit={handleConfirmationSubmit}>
-            <FormGroup controlId="confirmationCode" bsSize="large">
-            <ControlLabel>Confirmation Code</ControlLabel>
-            <FormControl
-            autoFocus
-            type="tel"
-            onChange={handleFieldChange}
-            value={fields.confirmationCode}
-            />
-            <HelpBlock>Please check your email for the code.</HelpBlock>
-            </FormGroup>
-            <LoaderButton
-            block
-            type="submit"
-            bsSize="large"
-            isLoading={isLoading}
-            disabled={!validateConfirmationForm()}
-            >
-            Verify
-            </LoaderButton>
-            </form>
-        );
-    }
-
+    
     function renderForm() {
         return (
             <form onSubmit={handleSubmit}>
@@ -142,7 +116,7 @@ export default function Signup() {
 
     return (
         <div className="Signup">
-        {newUser === null ? renderForm() : renderConfirmationForm()}
+            {renderForm()}
         </div>
     );
 }
